@@ -1,0 +1,16 @@
+version: "3"
+services:
+    postgres.producao:
+      build: postgres 
+      container_name: postgres.producao
+      ports:
+      - "6543:5432"
+      volumes:
+      - /data/bd_prod:/data
+    api.producao:
+      container_name: api.producao
+      image: tomcat:9.0.64-jre17
+      ports:
+      - "8080:8080"
+      volumes:
+      - /usr/local/tomcat/webapps/:/usr/local/tomcat/webapps/
